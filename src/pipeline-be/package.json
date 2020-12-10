@@ -1,0 +1,14 @@
+{
+  "name": "@sf/pipelinebackend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@sf/pipelinefrontend": "1.0.0",
+    "cowlog": "^1.6.62",
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "test": "echo testing server with version: $npm_package_version"
+  }
+}

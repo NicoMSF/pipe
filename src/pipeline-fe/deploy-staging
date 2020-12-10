@@ -1,0 +1,10 @@
+source .env.staging
+yarn -v
+yarn install
+REACT_APP_API_URL=${CR_STAGING_API_URL} yarn build
+docker build -f docker/nginx-spa/Dockerfile -t ${IMAGE_URL} .
+docker login -u gitlab-ci-token -p ${REGISTRY_TOKEN} registry.gitlab.com
+docker push  ${IMAGE_URL}
+
+echo "caprover deploy -h ${CR_STAGING_URL} -a ${CR_STAGING_APPNAME} -p ${CR_STAGING_PASS} -i ${IMAGE_URL}"
+caprover deploy -h ${CR_STAGING_URL} -a ${CR_STAGING_APPNAME} -p ${CR_STAGING_PASS} -i ${IMAGE_URL}

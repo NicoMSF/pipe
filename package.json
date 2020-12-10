@@ -1,0 +1,18 @@
+{
+  "name": "@successfactory/monorepo",
+  "private": true,
+  "scripts": {
+    "test": "npx lerna run test --scope={@sf/pipelinefrontend,@sf/pipelinebackend}",
+    "link": "npx lerna link",
+    "bootstrap": "npx lerna bootstrap",
+    "clean": "npx lerna clean",
+    "new-version": "lerna version --conventional-commits --yes",
+    "diff": "lerna diff"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "workspaces": [
+    "src/*"
+  ]
+}
